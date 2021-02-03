@@ -11,8 +11,18 @@ struct QuizBrain {
     var questionNumber = 0
     var score = 0
     
-    let quizArray = [Question(questionText: "У кошки 4 лапки", answer: "True"),
-    Question(questionText: "У собаки три лапки", answer: "False")]
+    let quizArray = [Question(q: "Cheek - Щека", a: "True"),
+        Question(q: "Mighty - Мочь", a: "False"),
+        Question(q: "Dispassionate - бесстрастный", a: "True"),
+        Question(q: "Assess - Доступ", a: "False"),
+        Question(q: "Shifting - Переключать", a: "False"),
+        Question(q: "Seesaw - Качели", a: "True"),
+        Question(q: "Diverge - Диверсия", a: "False"),
+        Question(q: "Stratum - Стратосфера", a: "False"),
+        Question(q: "Idly - Лениво", a: "True"),
+        Question(q: "Treasure - Удовольствие", a: "False"),
+        Question(q: "Act - Акт", a: "False"),
+        Question(q: "Pass - Передавать", a: "True")]
 
     func getQuestionText() -> String {
         return quizArray[questionNumber].questionText
@@ -23,6 +33,7 @@ struct QuizBrain {
             questionNumber = questionNumber + 1
         } else {
             questionNumber = 0
+            score = 0
         }
     }
 
@@ -38,5 +49,9 @@ struct QuizBrain {
     func getScore() -> Int {
         return score
     }
-    
+
+    func getProgress() -> Float {
+        let progress = Float(questionNumber + 1) / Float(quizArray.count)
+        return progress
+    }
 }

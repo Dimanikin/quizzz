@@ -60,7 +60,7 @@
                                             <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mk0-EM-4rU"/>
                                         </connections>
                                     </button>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-Ks-XFP">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-Ks-XFP">
                                         <rect key="frame" x="0.0" y="808" width="374" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="QV3-a8-RzJ"/>
