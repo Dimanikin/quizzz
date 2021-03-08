@@ -15,13 +15,15 @@ struct QuestionModel {
     let answerTwo: String
     let answerThree: String
     let answerFour: String
+    let correctAnswer: String
     
-    init(q: String, a1: String, a2: String, a3: String, a4: String) {
+    init(q: String, a1: String, a2: String, a3: String, a4: String, ca: String) {
         questionText = q
         answerOne = a1
         answerTwo = a2
         answerThree = a3
         answerFour = a4
+        correctAnswer = ca
     }
     
 }
