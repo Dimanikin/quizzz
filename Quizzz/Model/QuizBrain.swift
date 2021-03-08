@@ -9,7 +9,7 @@ import UIKit
 
 struct QuizBrain {
     var questionNumber = 0
-    var score = 0
+    private var score = 0
     
     var quizArray = [QuestionModel]()
 
@@ -34,7 +34,7 @@ struct QuizBrain {
     //MARK: - Check the User's Answer
 
     mutating func checkAnswer(_ userAnswer: String) -> Bool {
-        if userAnswer == quizArray[questionNumber].answerFour {
+        if userAnswer == quizArray[questionNumber].correctAnswer {
             score += 1
             return true
         } else {

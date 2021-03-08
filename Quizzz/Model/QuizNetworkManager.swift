@@ -32,7 +32,7 @@ class QuizNetworkManager {
 
     //MARK: - Parsing JSON
     
-    func parseJSON(safeData: Data) {
+    private func parseJSON(safeData: Data) {
 
         let decoder = JSONDecoder()
         do {
@@ -41,16 +41,18 @@ class QuizNetworkManager {
             for _ in decoderData.results {
                 let questionText = decoderData.results[quizBrain.questionNumber].question
                 let correctAnswer = decoderData.results[quizBrain.questionNumber].correctAnswer
-                let incorrectAnswers = decoderData.results[quizBrain.questionNumber].incorrectAnswers
-
-                let quiz = QuestionModel(q: questionText, a1: incorrectAnswers[0], a2: incorrectAnswers[1], a3: incorrectAnswers[2], a4: correctAnswer)
+                var incorrectAnswers = decoderData.results[quizBrain.questionNumber].incorrectAnswers
+                incorrectAnswers.append(correctAnswer)
+                incorrectAnswers.shuffle()
+                let quiz = QuestionModel(q: questionText, a1: incorrectAnswers[0], a2: incorrectAnswers[1], a3: incorrectAnswers[2], a4: incorrectAnswers[3], ca: correctAnswer)
                 quizBrain.questionNumber += 1
                 quizBrain.quizArray.append(quiz)
             }
+            quizBrain.quizArray.shuffle()
             quizBrain.questionNumber = 0
         } catch {
             print(error.localizedDescription)
         }
     }
-    
+
 }
